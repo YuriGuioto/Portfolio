@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { FadeIn } from '@/components/animations/fade-in';
 import { StaggerContainer } from '@/components/animations/stagger-container';
 import { skills } from '@/data/skills';
@@ -43,11 +44,14 @@ export function Skills() {
                     <motion.div key={skill.name} variants={fadeInUp}>
                       <Card className="glass glass-hover p-6 text-center group">
                         <div className="mb-4">
-                          <div className="w-16 h-16 mx-auto rounded-full bg-red-500/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                            {/* Icon placeholder - você pode adicionar ícones SVG aqui */}
-                            <span className="text-red-500 font-bold">
-                              {skill.name.charAt(0)}
-                            </span>
+                          <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-red-500/20 via-red-400/10 to-red-600/20 flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden p-2">
+                            <Image
+                              src={skill.icon}
+                              alt={skill.name}
+                              width={48}
+                              height={48}
+                              className="object-contain w-full h-full"
+                            />
                           </div>
                         </div>
 
